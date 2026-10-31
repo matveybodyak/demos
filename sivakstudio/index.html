@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sivakstudio — ногтевая студия и подология в Минске</title>
+<meta name="description" content="Ногтевая студия и подология Sivakstudio в Минске на ул. Неманской, 2. Маникюр, педикюр и бережный уход за стопами. Рейтинг 5,0 из 29 оценок. Запись — напрямую через Instagram, Viber и Telegram.">
+<meta property="og:title" content="Sivakstudio — ногтевая студия и подология в Минске">
+<meta property="og:description" content="Аккуратные ногти и лёгкие ноги. Маникюр, педикюр и уход за стопами на ул. Неманской, 2. Работаем с 9:00 до 21:00.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FAF6F1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23AD5E74'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' fill='%23FFF6F0' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Playfair+Display:ital,wght@0,500..700;1,500..600&display=swap" rel="stylesheet">
+<script>
+/* Тема применяется до первой отрисовки, чтобы не было вспышки неправильной темы.
+   По умолчанию — светлая; тёмная включается только кнопкой в шапке и запоминается. */
+(function(){
+  var d = document.documentElement;
+  d.classList.add('js');
+  var t = 'light';
+  try{
+    var saved = localStorage.getItem('sivakstudio-theme');
+    if(saved === 'dark' || saved === 'light'){ t = saved; }
+  }catch(e){}
+  d.setAttribute('data-theme', t);
+})();
+</script>
+<style>
+/* ============ ДИЗАЙН-ТОКЕНЫ ============ */
+:root{
+  --bg:#FAF6F1;
+  --bg-soft:#F4EDE4;
+  --card:#FFFEFB;
+  --text:#3A2E25;
+  --muted:#7D6F60;
+  --accent:#C4798C;
+  --accent-ink:#A6556B;
+  --accent-soft:#F5E1E4;
+  --star:#C9963F;
+  --line:rgba(58,46,37,.16);
+  --btn-bg:#AD5E74;
+  --btn-fg:#FFFFFF;
+  --shadow:0 22px 44px -20px rgba(58,46,37,.28);
+  --radius:22px;
+  --header-h:64px;
+  --hero-overlay:linear-gradient(180deg, rgba(26,17,13,.44) 0%, rgba(26,17,13,.18) 42%, rgba(26,17,13,.66) 100%);
+}
+html[data-theme="dark"]{
+  --bg:#211A14;
+  --bg-soft:#2A221A;
+  --card:#2C241C;
+  --text:#F2E9DF;
+  --muted:#BCA896;
+  --accent:#DFA0AE;
+  --accent-ink:#E5B2BD;
+  --accent-soft:#3B2B26;
+  --star:#D9A441;
+  --line:rgba(242,233,223,.18);
+  --btn-bg:#E3AEB9;
+  --btn-fg:#37211A;
+  --shadow:0 22px 44px -20px rgba(0,0,0,.6);
+  --hero-overlay:linear-gradient(180deg, rgba(15,10,8,.5) 0%, rgba(15,10,8,.26) 42%, rgba(15,10,8,.72) 100%);
+}
+/* ============ БАЗА ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16px;line-height:1.65;
+  color:var(--text);background:var(--bg);
+  /* запас снизу, чтобы липкая панель «Записаться» никогда не перекрывала контент */
+  padding-bottom:calc(96px + env(safe-area-inset-bottom,0px));
+  transition:background .35s ease,color .35s ease;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-weight:600;line-height:1.14;margin:0;letter-spacing:-.01em}
+p{margin:0}
+button{font-family:inherit}
+section{scroll-margin-top:calc(var(--header-h) + 12px)}
+.container{width:min(1140px,100% - 48px);margin-inline:auto}
+.section{padding:clamp(64px,9vw,112px) 0}
+.section--soft{background:var(--bg-soft);transition:background .35s ease}
+.section-head{max-width:640px;margin-bottom:clamp(28px,5vw,48px)}
+.section-head--center{margin-inline:auto;text-align:center}
+.section-head--center .eyebrow{justify-content:center}
+.eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--accent-ink);margin:0 0 14px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent-ink);flex:0 0 auto}
+.eyebrow--bare::before{display:none}
+h2{font-size:clamp(1.9rem,5.4vw,2.9rem)}
+.lead{color:var(--muted);margin-top:14px;font-size:1.02rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ============ КНОПКИ ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 26px;border-radius:999px;
+  font-weight:700;font-size:1rem;line-height:1;white-space:nowrap;
+  text-decoration:none;cursor:pointer;border:1px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease, filter .25s ease;
+}
+.btn svg{flex:0 0 auto}
+.btn--primary{background:var(--btn-bg);color:var(--btn-fg)}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(0,0,0,.35);filter:brightness(1.06)}
+.btn--ghost{background:transparent;border-color:var(--line);color:var(--text)}
+.btn--ghost:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+.btn--onphoto{background:rgba(255,255,255,.94);color:#3A2E25}
+.btn--onphoto:hover{transform:translateY(-2px);background:#fff}
+.btn--ghostphoto{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn--ghostphoto:hover{transform:translateY(-2px);background:rgba(255,255,255,.24);border-color:#fff;color:#fff}
+.btn[aria-disabled="true"]{opacity:.72;cursor:progress}
+.btn:active{transform:translateY(0)}
+
+/* ============ ШАПКА ============ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:80;height:var(--header-h);
+  display:flex;align-items:center;
+  background:var(--bg);
+  background:color-mix(in srgb, var(--bg) 84%, transparent);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header__in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Playfair Display',Georgia,serif;font-size:1.32rem;font-weight:700;text-decoration:none;letter-spacing:.01em;white-space:nowrap}
+.logo span{color:var(--accent-ink);font-style:italic;font-weight:500}
+.nav{display:none;align-items:center;gap:26px}
+.nav a{font-size:.92rem;font-weight:600;text-decoration:none;color:var(--text);opacity:.85;transition:opacity .2s,color .2s}
+.nav a:hover{opacity:1;color:var(--accent-ink)}
+.header__actions{display:flex;align-items:center;gap:10px}
+.icon-btn{
+  width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
+  background:transparent;color:var(--text);cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:border-color .2s,color .2s,transform .2s;
+}
+.icon-btn:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+.icon-btn .ic-moon{display:none}
+html[data-theme="dark"] .icon-btn .ic-moon{display:block}
+html[data-theme="dark"] .icon-btn .ic-sun{display:none}
+.header .btn{min-height:44px;padding:0 20px;font-size:.92rem}
+.burger{display:inline-flex}
+.nav-backdrop{
+  position:fixed;inset:0;z-index:70;background:var(--bg);
+  display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h) + 16px) 28px 40px;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.nav-backdrop.open{opacity:1;visibility:visible}
+.nav-backdrop nav{display:grid;gap:6px}
+.nav-backdrop a{
+  font-family:'Playfair Display',Georgia,serif;font-size:2rem;font-weight:600;
+  text-decoration:none;padding:10px 0;border-bottom:1px solid var(--line);
+}
+.nav-backdrop a:hover{color:var(--accent-ink)}
+.nav-backdrop__foot{margin-top:28px;color:var(--muted);font-size:.9rem}
+@media (min-width:920px){
+  .nav{display:flex}
+  .burger{display:none}
+  :root{--header-h:74px}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;align-items:flex-end;color:#fff;isolation:isolate;overflow:clip;
+}
+.hero__bg{position:absolute;inset:0;z-index:-2;background:var(--bg-soft)}
+.hero__bg img{width:100%;height:100%;object-fit:cover;animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--hero-overlay)}
+.hero__inner{padding:calc(var(--header-h) + 44px) 0 clamp(64px,10vw,112px);width:100%}
+/* Воздух по бокам: у hero собственные поля шире, чем у остальных секций */
+.hero .container{width:min(1140px,100% - 56px)}
+@media (min-width:600px){.hero .container{width:min(1140px,100% - 80px)}}
+.hero .chip{
+  display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  font-weight:700;font-size:.9rem;margin-bottom:26px;
+}
+.stars{color:var(--star);letter-spacing:2px;font-size:.95rem;white-space:nowrap}
+.hero h1{
+  font-size:clamp(2.55rem,9.2vw,5rem);font-weight:600;max-width:13ch;
+  text-shadow:0 2px 30px rgba(0,0,0,.25);
+}
+.hero h1 em{font-style:italic;font-weight:500;color:#F2CBD6}
+.hero__lead{margin-top:20px;max-width:52ch;font-size:clamp(1rem,2.6vw,1.14rem);color:rgba(255,255,255,.92)}
+.hero__cta{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:460px;margin-top:34px}
+.hero__facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.hero__facts span{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  font-size:.86rem;font-weight:600;white-space:nowrap;
+}
+@media (max-width:420px){.hero__cta{grid-template-columns:1fr}}
+
+/* ============ ПРИЁМНИК REVEAL (только текстовые элементы) ============ */
+html.js [data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+html.js [data-reveal].in{opacity:1;transform:none}
+
+/* ============ НАПРАВЛЕНИЯ ============ */
+.dir-grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:760px){.dir-grid{grid-template-columns:repeat(3,1fr);gap:20px}}
+.dir-card{
+  display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.dir-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.dir-card__media{aspect-ratio:4/3;overflow:hidden;background:var(--bg-soft)}
+.dir-card__media img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.dir-card:hover .dir-card__media img{transform:scale(1.045)}
+.dir-card__body{display:flex;flex-direction:column;gap:10px;padding:22px 22px 24px;flex:1}
+.dir-card h3{font-size:1.42rem}
+.dir-card p{color:var(--muted);font-size:.95rem}
+.link-more{
+  margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:8px;
+  color:var(--accent-ink);font-weight:700;font-size:.95rem;text-decoration:none;white-space:nowrap;
+}
+.link-more:hover{gap:12px}
+.link-more{transition:gap .25s ease}
+
+/* ============ ПРАЙС ============ */
+.tabs{
+  display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:0 0 auto;white-space:nowrap;min-height:46px;padding:0 22px;border-radius:999px;
+  border:1px solid var(--line);background:var(--card);color:var(--text);
+  font-weight:700;font-size:.95rem;cursor:pointer;
+  transition:background .25s,color .25s,border-color .25s,transform .25s;
+}
+.tab:hover{border-color:var(--accent-ink);color:var(--accent-ink)}
+.tab[aria-selected="true"]{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent}
+.tab[aria-selected="true"]:hover{color:var(--btn-fg)}
+.price-panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(6px,2vw,16px) clamp(18px,3.5vw,34px)}
+.price-panel[hidden]{display:none}
+.price-panel .price-list{animation:panelIn .4s ease}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.price-row{padding:18px 0;border-bottom:1px dashed var(--line)}
+.price-row:last-child{border-bottom:0}
+.price-row__top{display:flex;align-items:baseline;gap:12px}
+.price-name{font-weight:700;font-size:1.04rem}
+.dots{flex:1;min-width:20px;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+.price-value{font-weight:800;font-size:1.04rem;white-space:nowrap}
+.price-value .cur{font-size:.78em;font-weight:700;margin-left:2px}
+.price-from{color:var(--muted);font-weight:600;margin-right:4px}
+.price-desc{color:var(--muted);font-size:.92rem;margin-top:5px;max-width:62ch}
+.price-note{color:var(--muted);font-size:.88rem;margin-top:16px;display:flex;gap:8px;align-items:flex-start}
+
+/* ============ О СТУДИИ ============ */
+.about-grid{display:grid;gap:clamp(24px,4vw,44px);grid-template-columns:1fr;align-items:center}
+@media (min-width:880px){.about-grid{grid-template-columns:1.05fr .95fr}}
+.about-text p+p{margin-top:14px}
+.about-text p{color:var(--muted)}
+.about-text p.strong{color:var(--text);font-weight:600}
+.about-media{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.about-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.4}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(26px,4vw,38px)}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px}
+.stat__line{font-size:clamp(1.45rem,4.6vw,2.05rem);line-height:1.2;font-weight:500;color:var(--text)}
+.stat__line b{font-weight:800}
+.stat__cap{color:var(--muted);font-size:.82rem;margin-top:6px;line-height:1.4}
+@media (max-width:560px){.stats{grid-template-columns:1fr 1fr}.stat:first-child{grid-column:1/-1}}
+
+/* ============ ГАЛЕРЕЯ ============ */
+.filters{
+  display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-bottom:18px;
+}
+.filters::-webkit-scrollbar{display:none}
+.gal-grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:600px){.gal-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+@media (min-width:760px){.gal-grid{grid-template-columns:repeat(4,1fr);gap:16px}}
+.gal-item{border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--bg-soft);border:1px solid var(--line)}
+@media (min-width:600px){.gal-item{aspect-ratio:4/5}}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item.is-hidden{display:none}
+.gal-note{color:var(--muted);font-size:.88rem;margin-top:18px}
+
+/* ============ ОТЗЫВЫ ============ */
+.reviews-box{
+  background:var(--card);border:1px solid var(--line);border-radius:28px;
+  padding:clamp(30px,6vw,56px) clamp(20px,5vw,56px);text-align:center;max-width:720px;margin-inline:auto;
+}
+.reviews-box .stars{font-size:1.5rem;letter-spacing:6px}
+.reviews-line{
+  font-size:clamp(2.3rem,7.5vw,3.6rem);line-height:1.15;margin-top:12px;
+  font-family:'Playfair Display',Georgia,serif;font-weight:500;color:var(--text);
+}
+.reviews-line b{font-weight:700}
+.reviews-cap{color:var(--muted);margin-top:10px}
+.reviews-box .btn{margin-top:24px}
+
+/* ============ FAQ ============ */
+.faq{display:grid;gap:12px;max-width:780px;margin-inline:auto}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:var(--accent)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  min-height:60px;padding:16px 20px;background:none;border:0;cursor:pointer;
+  font-size:1.02rem;font-weight:700;color:var(--text);text-align:left;line-height:1.4;
+}
+.faq-icon{position:relative;width:22px;height:22px;flex:0 0 auto}
+.faq-icon::before,.faq-icon::after{
+  content:"";position:absolute;top:50%;left:50%;width:14px;height:2px;border-radius:2px;
+  background:var(--accent-ink);transform:translate(-50%,-50%);transition:transform .35s ease;
+}
+.faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-item.open .faq-icon::after{transform:translate(-50%,-50%) rotate(0deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.faq-a>div{overflow:hidden}
+.faq-a p{color:var(--muted);padding:0 20px 20px;font-size:.96rem}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+
+/* ============ ЗАПИСЬ ============ */
+.booking{
+  background:var(--accent-soft);border:1px solid var(--line);border-radius:30px;
+  padding:clamp(30px,6vw,60px) clamp(20px,5vw,56px);text-align:center;
+}
+.booking h2{max-width:16ch;margin-inline:auto}
+.booking .lead{max-width:52ch;margin-inline:auto}
+.booking-actions{
+  display:grid;grid-template-columns:1fr;gap:12px;
+  max-width:620px;margin:28px auto 0;
+}
+@media (min-width:600px){.booking-actions{grid-template-columns:repeat(3,1fr)}}
+.booking-actions .btn{width:100%;min-height:56px}
+.booking-note{color:var(--muted);font-size:.88rem;margin-top:18px}
+.booking-note a{color:var(--accent-ink);font-weight:600}
+
+/* ============ ФУТЕР ============ */
+.footer{background:var(--bg-soft);border-top:1px solid var(--line);padding:clamp(40px,6vw,64px) 0 26px;transition:background .35s ease}
+.footer-grid{display:grid;gap:28px;grid-template-columns:1fr}
+@media (min-width:820px){.footer-grid{grid-template-columns:1.2fr .8fr 1.2fr}}
+.footer h4{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-family:'Manrope',sans-serif;font-weight:800}
+.footer-list{display:grid;gap:9px;list-style:none;margin:0;padding:0}
+.footer-list a{text-decoration:none;color:var(--text);opacity:.85}
+.footer-list a:hover{color:var(--accent-ink);opacity:1}
+.footer-brand p{color:var(--muted);font-size:.94rem;margin-top:10px;max-width:34ch}
+.footer-contact li{display:flex;gap:10px;align-items:flex-start;color:var(--text);opacity:.88}
+.footer-contact svg{margin-top:3px;flex:0 0 auto;color:var(--accent-ink)}
+.footer-demo{
+  background:var(--card);border:1px dashed var(--line);border-radius:16px;padding:16px 18px;
+  color:var(--muted);font-size:.86rem;line-height:1.55;
+}
+.footer-bottom{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--line);margin-top:32px;padding-top:22px;color:var(--muted);font-size:.86rem;
+}
+.footer-bottom a{color:var(--accent-ink);text-decoration:none;font-weight:600}
+
+/* ============ ЛИПКАЯ ПАНЕЛЬ ЗАПИСИ ============ */
+.sticky-cta{
+  position:fixed;left:50%;bottom:14px;z-index:75;
+  width:min(560px,calc(100% - 24px));
+  transform:translate(-50%,150%);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:10px 10px 10px 20px;border-radius:999px;
+  background:var(--card);
+  background:color-mix(in srgb, var(--card) 94%, transparent);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  transition:transform .5s cubic-bezier(.22,.7,.25,1), visibility 0s linear .5s;
+  visibility:hidden;
+}
+.sticky-cta.show{transform:translate(-50%,0);visibility:visible;transition:transform .5s cubic-bezier(.22,.7,.25,1)}
+.sticky-cta__label{font-size:.86rem;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky-cta__label b{color:var(--text)}
+.sticky-cta .btn{min-height:48px;padding:0 24px;flex:0 0 auto}
+@media (max-width:400px){.sticky-cta__label span.hide-s{display:none}}
+/* На мобильных липкая панель убрана: перекрывала контент,
+   а кнопка «Записаться» и так всегда видна в шапке */
+@media (max-width:919.98px){
+  .sticky-cta{display:none}
+  body{padding-bottom:0}
+}
+
+/* ============ СТРАНИЦА ПОЛИТИКИ ============ */
+#view-policy{display:none}
+body.policy-open .site{display:none}
+body.policy-open #view-policy{display:block}
+body.policy-open{padding-bottom:0}
+.policy-top{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;
+  background:var(--bg);background:color-mix(in srgb,var(--bg) 88%,transparent);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.policy-top a.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;color:var(--accent-ink);white-space:nowrap}
+.policy-wrap{max-width:760px;margin-inline:auto;padding:clamp(32px,6vw,56px) 0 80px}
+.policy-wrap .section-head{margin-bottom:26px}
+.policy-wrap h3{font-size:1.25rem;margin:30px 0 10px;font-family:'Manrope',sans-serif;font-weight:800}
+.policy-wrap p{color:var(--muted)}
+.policy-wrap p+p{margin-top:10px}
+.policy-demo{margin-top:36px}
+
+/* ============ ДОСТУПНОСТЬ / MOTION ============ */
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html.js [data-reveal]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="site" id="top">
+
+<!-- ============ ШАПКА ============ -->
+<header class="header">
+  <div class="container header__in">
+    <a class="logo" href="#top">Sivak<span>studio</span></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#directions">Направления</a>
+      <a href="#price">Прайс</a>
+      <a href="#about">О студии</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header__actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Переключить тему">
+        <svg class="ic-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M4.8 4.8l1.6 1.6M17.6 17.6l1.6 1.6M19.2 4.8l-1.6 1.6M6.4 17.6l-1.6 1.6"/></svg>
+        <svg class="ic-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7Z"/></svg>
+      </button>
+      <a class="btn btn--primary" href="#booking">Записаться</a>
+      <button class="icon-btn burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Мобильное меню -->
+<div class="nav-backdrop" id="mobile-menu">
+  <nav aria-label="Мобильная навигация">
+    <a href="#directions">Направления</a>
+    <a href="#price">Прайс</a>
+    <a href="#about">О студии</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <p class="nav-backdrop__foot">Минск, ул. Неманская, 2 · 9:00–21:00</p>
+</div>
+
+<main>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" aria-label="Sivakstudio — ногтевая студия и подология">
+  <div class="hero__bg">
+    <img src="https://images.pexels.com/photos/34941684/pexels-photo-34941684.jpeg?auto=compress&cs=tinysrgb&w=2400" alt="Нейтральное фото: аккуратный маникюр с бежевым покрытием" fetchpriority="high">
+  </div>
+  <div class="container hero__inner">
+    <p class="chip"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 · 29 оценок</p>
+    <h1>Аккуратные ногти <em>и лёгкие ноги</em></h1>
+    <p class="hero__lead">Ногтевая студия и подология Sivakstudio на ул. Неманской, 2 в Минске. Маникюр, педикюр и бережный уход за стопами — деликатно и внимательно к деталям.</p>
+    <div class="hero__cta">
+      <a class="btn btn--onphoto" href="#booking">Записаться</a>
+      <a class="btn btn--ghostphoto" href="#price">Смотреть прайс</a>
+    </div>
+    <div class="hero__facts">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg> Минск, ул. Неманская, 2</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg> 9:00–21:00</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. НАПРАВЛЕНИЯ ============ -->
+<section class="section" id="directions">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Направления</p>
+      <h2 data-reveal>Три направления заботы</h2>
+      <p class="lead" data-reveal>От аккуратного маникюра до подологии — всё, что нужно рукам и ногам, в одной студии.</p>
+    </div>
+    <div class="dir-grid">
+      <article class="dir-card">
+        <div class="dir-card__media"><img src="https://images.pexels.com/photos/973405/pexels-photo-973405.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: маникюр" loading="lazy"></div>
+        <div class="dir-card__body">
+          <h3>Маникюр</h3>
+          <p>Маникюр с покрытием и без, выравнивание гелем и долговременные покрытия — для рук, за которые приятно.</p>
+          <a class="link-more" href="#price" data-tab-link="man">Смотреть цены <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="dir-card">
+        <div class="dir-card__media"><img src="https://images.pexels.com/photos/34930127/pexels-photo-34930127.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: педикюр и уход за стопами" loading="lazy"></div>
+        <div class="dir-card__body">
+          <h3>Педикюр и подология</h3>
+          <p>Педикюр с однотонным покрытием и полным уходом: крем, массаж и масло для кутикулы. Бережная забота о стопах.</p>
+          <a class="link-more" href="#price" data-tab-link="ped">Смотреть цены <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="dir-card">
+        <div class="dir-card__media"><img src="https://images.pexels.com/photos/38283820/pexels-photo-38283820.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: дизайн ногтей" loading="lazy"></div>
+        <div class="dir-card__body">
+          <h3>Дизайн и наращивание</h3>
+          <p>Артдизайн и наращивание ногтей, чтобы подчеркнуть ваш стиль. Стоимость уточняется при записи.</p>
+          <a class="link-more" href="#price" data-tab-link="extra">Смотреть цены <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. ПРАЙС ============ -->
+<section class="section section--soft" id="price">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Прайс</p>
+      <h2 data-reveal>Услуги и цены</h2>
+      <p class="lead" data-reveal>Цены указаны в белорусских рублях (BYN). Точную стоимость и длительность мастер подтверждает при записи.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Категории услуг">
+      <button class="tab" id="tab-man" role="tab" aria-selected="true" aria-controls="panel-man" type="button">Маникюр</button>
+      <button class="tab" id="tab-ped" role="tab" aria-selected="false" aria-controls="panel-ped" tabindex="-1" type="button">Педикюр и подология</button>
+      <button class="tab" id="tab-extra" role="tab" aria-selected="false" aria-controls="panel-extra" tabindex="-1" type="button">Дополнительно</button>
+    </div>
+
+    <div class="price-panel" id="panel-man" role="tabpanel" aria-labelledby="tab-man">
+      <div class="price-list">
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Маникюр без покрытия</span><span class="dots" aria-hidden="true"></span><span class="price-value">35 <span class="cur">BYN</span></span></div>
+          <p class="price-desc">Обработка ногтей и кутикулы, без нанесения покрытия.</p>
+        </div>
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Маникюр + выравнивание гелем + долговременное покрытие</span><span class="dots" aria-hidden="true"></span><span class="price-value">60 <span class="cur">BYN</span></span></div>
+        </div>
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Классический женский маникюр с покрытием</span><span class="dots" aria-hidden="true"></span><span class="price-value"><span class="price-from">от</span>50 <span class="cur">BYN</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-panel" id="panel-ped" role="tabpanel" aria-labelledby="tab-ped" hidden>
+      <div class="price-list">
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Педикюр с однотонным покрытием</span><span class="dots" aria-hidden="true"></span><span class="price-value">70 <span class="cur">BYN</span></span></div>
+          <p class="price-desc">Снятие — в подарок. Входит уход: крем, массаж и масло для кутикулы.</p>
+        </div>
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Педикюр «Только пальчики»</span><span class="dots" aria-hidden="true"></span><span class="price-value">60 <span class="cur">BYN</span></span></div>
+          <p class="price-desc">Кутикула, снятие и однотонное долговременное покрытие + масло для кутикулы.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-panel" id="panel-extra" role="tabpanel" aria-labelledby="tab-extra" hidden>
+      <div class="price-list">
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Артдизайн</span><span class="dots" aria-hidden="true"></span><span class="price-value">цена при записи</span></div>
+          <p class="price-desc">Стоимость зависит от сложности дизайна — обсуждаем при записи.</p>
+        </div>
+        <div class="price-row">
+          <div class="price-row__top"><span class="price-name">Наращивание ногтей</span><span class="dots" aria-hidden="true"></span><span class="price-value">цена при записи</span></div>
+          <p class="price-desc">Индивидуальный расчёт при записи.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="price-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="flex:0 0 auto;margin-top:3px"><circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/></svg> Все цены — в белорусских рублях (BYN). Подарочные условия указаны в описании услуг.</p>
+  </div>
+</section>
+
+<!-- ============ 4. О СТУДИИ ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="eyebrow" data-reveal>О студии</p>
+        <h2 data-reveal>Подология — это не только красота</h2>
+        <p class="lead" data-reveal>Подология — профессиональный уход за стопами: бережная обработка кожи, аккуратная работа с ногтями и внимание к комфорту. Это забота о лёгкости ног, а не только про внешний вид.</p>
+        <p data-reveal>В Sivakstudio педикюр и уход за стопами идут наравне с маникюром. Студия находится на ул. Неманской, 2 в Минске и принимает с 9:00 до 21:00 — записаться можно на удобное время.</p>
+        <p data-reveal>Отдельное внимание — педикюру с полным уходом: крем, массаж и масло для кутикулы завершают процедуру, а снятие покрытия при записи на педикюр с покрытием студия делает в подарок.</p>
+        <div class="stats">
+          <div class="stat">
+            <p class="stat__line"><b>5,0</b> <span>рейтинг</span></p>
+            <p class="stat__cap">средняя оценка студии</p>
+          </div>
+          <div class="stat">
+            <p class="stat__line"><b>29</b> <span>оценок</span></p>
+            <p class="stat__cap">оставили клиенты студии</p>
+          </div>
+          <div class="stat">
+            <p class="stat__line"><b>12</b> <span>часов</span></p>
+            <p class="stat__cap">открыты с 9:00 до 21:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-media">
+        <img src="https://images.pexels.com/photos/19695980/pexels-photo-19695980.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: уход за стопами во время педикюра" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. ГАЛЕРЕЯ ============ -->
+<section class="section section--soft" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>Галерея</p>
+      <h2 data-reveal>Настроение студии</h2>
+      <p class="lead" data-reveal>Спокойные, аккуратные работы — в светлых оттенках, близких стилю студии.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Фильтр галереи">
+      <button class="tab" type="button" data-filter="all" aria-pressed="true">Все</button>
+      <button class="tab" type="button" data-filter="man" aria-pressed="false">Маникюр</button>
+      <button class="tab" type="button" data-filter="ped" aria-pressed="false">Педикюр</button>
+      <button class="tab" type="button" data-filter="des" aria-pressed="false">Дизайн</button>
+    </div>
+
+    <div class="gal-grid" id="gal-grid">
+      <figure class="gal-item" data-cat="man"><img src="https://images.pexels.com/photos/13038494/pexels-photo-13038494.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: маникюр с нюдовым покрытием" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="ped"><img src="https://images.pexels.com/photos/9789207/pexels-photo-9789207.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: педикюр" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="man"><img src="https://images.pexels.com/photos/3557600/pexels-photo-3557600.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: аккуратный маникюр" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="des"><img src="https://images.pexels.com/photos/35031996/pexels-photo-35031996.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: дизайн ногтей" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="ped"><img src="https://images.pexels.com/photos/17056222/pexels-photo-17056222.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: уход за стопами" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="man"><img src="https://images.pexels.com/photos/35103940/pexels-photo-35103940.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: маникюр в нежных оттенках" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="ped"><img src="https://images.pexels.com/photos/18441298/pexels-photo-18441298.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: педикюр с покрытием" loading="lazy"></figure>
+      <figure class="gal-item" data-cat="des"><img src="https://images.pexels.com/photos/34941704/pexels-photo-34941704.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Нейтральное фото-пример: маникюр с цветочным декором" loading="lazy"></figure>
+    </div>
+    <p class="gal-note">В галерее — нейтральные стоковые фото-примеры. Собственные работы мастеров студия добавит при наполнении сайта.</p>
+  </div>
+</section>
+<!-- ============ 6. ОТЗЫВЫ ============ -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <p class="eyebrow" data-reveal>Отзывы</p>
+      <h2 data-reveal>Оценка клиентов студии</h2>
+    </div>
+    <div class="reviews-box">
+      <p class="stars" aria-label="Пять звёзд">★★★★★</p>
+      <p class="reviews-line"><b>5,0</b> из <b>29</b> оценок</p>
+      <p class="reviews-cap">Средний рейтинг Sivakstudio по оценкам клиентов. Спасибо каждому, кто оценил работу студии.</p>
+      <a class="btn btn--ghost" href="https://www.instagram.com/sivaknails/" target="_blank" rel="noopener">Instagram студии</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. FAQ ============ -->
+<section class="section section--soft" id="faq">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <p class="eyebrow" data-reveal>FAQ</p>
+      <h2 data-reveal>Частые вопросы</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1">Сколько длится процедура?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-a1"><div><p>Длительность зависит от услуги: маникюр с покрытием и дизайном занимает больше времени, чем маникюр без покрытия, а педикюр с уходом — дольше, чем вариант «Только пальчики». Точное время мастер подскажет при записи.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2">Что входит в педикюр?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-a2"><div><p>В педикюр с однотонным покрытием (70 BYN) входят обработка и однотонное долговременное покрытие, снятие старого покрытия — в подарок, а также уход: крем, массаж и масло для кутикулы. Вариант «Только пальчики» (60 BYN): кутикула, снятие и однотонное долговременное покрытие, в завершение — масло для кутикулы.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3">Как записаться?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-a3"><div><p>Нажмите на кнопку записи — откроется Instagram студии @sivaknails. Также доступны кнопки Viber и Telegram: контакты уточняются у студии и появятся на сайте после подтверждения владельцем. Студия принимает с 9:00 до 21:00.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4">Где находится студия?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a" id="faq-a4"><div><p>Минск, ул. Неманская, 2. Ждём вас с 9:00 до 21:00.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. ЗАПИСЬ ============ -->
+<section class="section" id="booking">
+  <div class="container">
+    <div class="booking">
+      <div class="section-head section-head--center">
+        <p class="eyebrow" data-reveal>Запись</p>
+        <h2 data-reveal>Запишитесь на приём</h2>
+        <p class="lead" data-reveal>Выберите удобный мессенджер — запись проходит напрямую, без форм и без передачи персональных данных сайту.</p>
+      </div>
+      <div class="booking-actions">
+        <a class="btn btn--primary" href="https://www.instagram.com/sivaknails/" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+        <button class="btn btn--ghost" type="button" aria-disabled="true" title="Контакты уточняются у студии"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5c0 4.1-4 7.5-9 7.5-1 0-2-.1-2.9-.4L4 20l1.3-3.6C4 15.1 3 13.4 3 11.5 3 7.4 7 4 12 4s9 3.4 9 7.5Z"/></svg>Viber</button>
+        <button class="btn btn--ghost" type="button" aria-disabled="true" title="Контакты уточняются у студии"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M21 4 3.6 11.3c-.8.3-.8 1.4.1 1.6l4.3 1.3 1.6 4.9c.3.8 1.3.9 1.8.2l2.3-3 4.3 3.2c.6.4 1.5.1 1.6-.7L21 4Z"/></svg>Telegram</button>
+      </div>
+      <p class="booking-note">Контакты для Viber и Telegram уточняются у студии — кнопки станут активными после подтверждения владельцем. Телефон на сайте не публикуется.</p>
+      <p class="booking-note"><a href="#policy">Политика обработки персональных данных</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ ФУТЕР ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">Sivak<span>studio</span></a>
+        <p>Ногтевая студия и подология в Минске. Аккуратные ногти и лёгкие ноги — бережно и внимательно к деталям.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul class="footer-list">
+          <li><a href="#directions">Направления</a></li>
+          <li><a href="#price">Прайс</a></li>
+          <li><a href="#about">О студии</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#booking">Запись</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul class="footer-list footer-contact">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg><span>г. Минск, ул. Неманская, 2</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>9:00–21:00</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg><a href="https://www.instagram.com/sivaknails/" target="_blank" rel="noopener">Instagram: sivaknails</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-demo">
+      Это демо-версия сайта: макет создан, чтобы показать структуру и подачу студии. Тексты, фото, цены и контакты заменяются данными студии перед публикацией. Телефон не публикуется до подтверждения владельцем, поэтому кнопки Viber и Telegram пока без ссылок.
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Sivakstudio · Демо-макет одностраничного сайта</p>
+      <a href="#policy">Политика обработки персональных данных</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Липкая панель записи: появляется только после прокрутки hero -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <p class="sticky-cta__label"><b>Запись</b><span class="hide-s"> — напрямую в мессенджерах</span></p>
+  <a class="btn btn--primary" href="#booking">Записаться</a>
+</div>
+
+</div><!-- /.site -->
+
+<!-- ============ 9. СТРАНИЦА ПОЛИТИКИ (hash: #policy) ============ -->
+<section id="view-policy" aria-label="Политика обработки персональных данных">
+  <div class="container">
+    <div class="policy-top">
+      <a class="logo" href="#top">Sivak<span>studio</span></a>
+      <a class="back" href="#top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> На сайт</a>
+    </div>
+    <div class="policy-wrap">
+      <p class="eyebrow">Документы</p>
+      <h2>Политика обработки персональных данных</h2>
+      <p class="lead">Демо-редакция документа. Перед публикацией владелец студии может дополнить её своими реквизитами и датой вступления в силу.</p>
+
+      <h3>1. Общие положения</h3>
+      <p>Настоящая политика применяется к сайту студии Sivakstudio (Минск, ул. Неманская, 2). Сайт представляет собой одностраничную статическую страницу: у него нет серверной части, базы данных и приёмников пользовательских данных.</p>
+
+      <h3>2. Какие данные собирает сайт</h3>
+      <p>Никакие персональные данные не собираются и не передаются. На сайте нет форм, полей ввода, счётчиков аналитики и рекламных скриптов. Сайт не получает имена, телефоны, адреса e-mail и не создаёт профили посетителей.</p>
+
+      <h3>3. Запись через мессенджеры</h3>
+      <p>Кнопки записи ведут в Instagram, Viber и Telegram. Общение со студией происходит в этих приложениях; обработка данных в них регулируется правилами соответствующих сервисов. Телефонный номер на сайте не публикуется до подтверждения владельцем студии.</p>
+
+      <h3>4. Файлы cookie и localStorage</h3>
+      <p>Сайт не использует файлы cookie. Единственное сохраняемое значение — выбранная тема оформления («светлая» или «тёмная») в localStorage вашего браузера. Оно не содержит персональных данных и никуда не отправляется.</p>
+
+      <h3>5. Изменения политики</h3>
+      <p>Перед публикацией владелец студии сможет дополнить политику своими реквизитами. Актуальная редакция всегда размещается на этой странице.</p>
+
+      <div class="footer-demo policy-demo">
+        Демо-версия сайта. Контент, цены и контакты заменяются данными студии перед публикацией.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. СКРИПТЫ ============ -->
+<script>
+(function(){
+"use strict";
+var d = document.documentElement;
+
+/* ---------- Тема ---------- */
+function applyTheme(t){
+  d.setAttribute('data-theme', t);
+  try{ localStorage.setItem('sivakstudio-theme', t); }catch(e){}
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute('content', t === 'dark' ? '#211A14' : '#FAF6F1');
+}
+Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function(btn){
+  btn.addEventListener('click', function(){
+    applyTheme(d.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+});
+
+/* ---------- Мобильное меню ---------- */
+var burger = document.querySelector('.burger');
+var backdrop = document.getElementById('mobile-menu');
+function closeMenu(){
+  if(!backdrop) return;
+  backdrop.classList.remove('open');
+  if(burger) burger.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}
+if(burger && backdrop){
+  burger.addEventListener('click', function(){
+    var open = !backdrop.classList.contains('open');
+    backdrop.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  Array.prototype.forEach.call(backdrop.querySelectorAll('a'), function(a){
+    a.addEventListener('click', closeMenu);
+  });
+}
+
+/* ---------- Вкладки прайса ---------- */
+var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs .tab'));
+var panels = {
+  man: document.getElementById('panel-man'),
+  ped: document.getElementById('panel-ped'),
+  extra: document.getElementById('panel-extra')
+};
+function selectTab(key, focus){
+  tabs.forEach(function(t){
+    var is = t.id === 'tab-' + key;
+    t.setAttribute('aria-selected', String(is));
+    t.tabIndex = is ? 0 : -1;
+    if(is && focus) t.focus();
+  });
+  Object.keys(panels).forEach(function(k){ panels[k].hidden = (k !== key); });
+}
+tabs.forEach(function(t, i){
+  t.addEventListener('click', function(){ selectTab(t.id.replace('tab-','')); });
+  t.addEventListener('keydown', function(e){
+    var dir = e.key === 'ArrowRight' ? 1 : (e.key === 'ArrowLeft' ? -1 : 0);
+    if(!dir) return;
+    e.preventDefault();
+    var next = tabs[(i + dir + tabs.length) % tabs.length];
+    selectTab(next.id.replace('tab-',''), true);
+  });
+});
+Array.prototype.forEach.call(document.querySelectorAll('[data-tab-link]'), function(a){
+  a.addEventListener('click', function(){
+    selectTab(a.getAttribute('data-tab-link'));
+    closeMenu();
+  });
+});
+
+/* ---------- Галерея: фильтры ---------- */
+var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filters .tab'));
+var galItems = Array.prototype.slice.call(document.querySelectorAll('.gal-item'));
+filterBtns.forEach(function(btn){
+  btn.addEventListener('click', function(){
+    filterBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+    var f = btn.getAttribute('data-filter');
+    galItems.forEach(function(it){
+      it.classList.toggle('is-hidden', f !== 'all' && it.getAttribute('data-cat') !== f);
+    });
+  });
+});
+
+/* ---------- FAQ-аккордеон ---------- */
+Array.prototype.forEach.call(document.querySelectorAll('.faq-item'), function(item){
+  var q = item.querySelector('.faq-q');
+  q.addEventListener('click', function(){
+    var open = item.classList.toggle('open');
+    q.setAttribute('aria-expanded', String(open));
+  });
+});
+
+/* ---------- Reveal-анимации: только заголовки и текст, без интерактивных блоков ---------- */
+var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  revealEls.forEach(function(el){ io.observe(el); });
+}else{
+  d.classList.remove('js');
+}
+
+/* ---------- Липкая панель записи: только после hero, скрыта на блоке записи ---------- */
+var sticky = document.getElementById('sticky-cta');
+var hero = document.querySelector('.hero');
+var booking = document.getElementById('booking');
+function setSticky(show){
+  sticky.classList.toggle('show', show);
+  sticky.setAttribute('aria-hidden', String(!show));
+}
+var heroOut = false, bookIn = false;
+function updateSticky(){
+  if(!sticky) return;
+  setSticky(heroOut && !bookIn && !document.body.classList.contains('policy-open') && !(backdrop && backdrop.classList.contains('open')));
+}
+if(sticky && hero && booking && 'IntersectionObserver' in window){
+  var heroIO = new IntersectionObserver(function(en){
+    heroOut = !en[0].isIntersecting;
+    updateSticky();
+  }, { threshold: 0 });
+  heroIO.observe(hero);
+  var bookIO = new IntersectionObserver(function(en){
+    bookIn = en[0].isIntersecting;
+    updateSticky();
+  }, { threshold: 0.2 });
+  bookIO.observe(booking);
+}
+
+/* ---------- Страница политики: hash #policy / #privacy ---------- */
+function handleHash(){
+  var h = (location.hash || '').toLowerCase();
+  var openPolicy = (h === '#policy' || h === '#privacy');
+  document.body.classList.toggle('policy-open', openPolicy);
+  if(openPolicy) window.scrollTo(0, 0);
+  updateSticky();
+}
+window.addEventListener('hashchange', function(){
+  var wasPolicy = document.body.classList.contains('policy-open');
+  handleHash();
+  if(wasPolicy && !document.body.classList.contains('policy-open')){
+    var h = location.hash;
+    if(h && h !== '#top'){
+      var el = document.querySelector(h);
+      if(el) el.scrollIntoView();
+    }else{
+      window.scrollTo(0, 0);
+    }
+  }
+});
+handleHash();
+
+/* ---------- Год в футере ---------- */
+var y = document.getElementById('year');
+if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
